@@ -1,7 +1,5 @@
 console.log("converter.js");
 
-let tempNumber = [];
-let convertNumber =  "Test";
 //F TO C: FAHRENHEIT TO CELSIUS CONVERSION FORMULA
 //To convert temperatures in degrees Fahrenheit to Celsius, subtract 32 and multiply by .5556 (or 5/9).
 //Example: (50°F - 32) x .5556 = 10°C
@@ -10,7 +8,7 @@ let convertNumber =  "Test";
 //To convert temperatures in degrees Celsius to Fahrenheit, multiply by 1.8 (or 9/5) and add 32.
 //Example: 30°C x 1.8 + 32 = 86°F
 
-function toCelsius () {
+function toCelsius (passedValue) {
 	mathedCelNumber = (tempNumber - 32) * .5556
 }
 
@@ -26,9 +24,12 @@ function toFahrenheit () {
 
 
 // Convert Button
-document.getElementById("btn-converter").addEventListener("click", determineConverter);
-function determineConverter (clickEvent) {
-  console.log("event", clickEvent);
+let convertButton = document.getElementById("btn-converter")
+let convertThisNumber;
+
+convertButton.addEventListener("click", function){
+	convertThisNumber = document.getElementById().value;
+
 }
 
 // ****** WORKING ******  Reset Button
@@ -39,10 +40,10 @@ function clearForm() {
 }
 function doMathStuff(){
 	if(document.getElementById("selectC") = true;){
-		console.log("");
+
 	}
 }
 
 // ****** WORKING ****** Print convertNumber to HTML
-document.getElementById("tempAnswer").innerHTML = convertNumber;
+document.getElementById("tempAnswer").innerHTML = convertedNumber;
 
