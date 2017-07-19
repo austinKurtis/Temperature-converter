@@ -1,49 +1,69 @@
 console.log("converter.js");
-
-//F TO C: FAHRENHEIT TO CELSIUS CONVERSION FORMULA
-//To convert temperatures in degrees Fahrenheit to Celsius, subtract 32 and multiply by .5556 (or 5/9).
-//Example: (50°F - 32) x .5556 = 10°C
-
-//C TO F: CELSIUS TO FAHRENHEIT CONVERSION FORMULA
-//To convert temperatures in degrees Celsius to Fahrenheit, multiply by 1.8 (or 9/5) and add 32.
-//Example: 30°C x 1.8 + 32 = 86°F
-
-function toCelsius (passedValue) {
-	mathedCelNumber = (tempNumber - 32) * .5556
-}
+function toCelsius () {
+	console.log("Picked Celsius")
+	let numToConvert = document.getElementById("inp-num").value
+	let convertedCNum = ((numToConvert - 32) * 5) /9;
+	let replaceText = document.getElementById("printTemp")
+	if (convertedCNum > 32) {
+		replaceText.innerHTML = (convertedCNum + "°C").fontcolor("red");
+	}	else if (convertedCNum < 0) {
+		replaceText.innerHTML = (convertedCNum + "°C").fontcolor("blue");
+	}	else {
+		replaceText.innerHTML = (convertedCNum + "°C").fontcolor("green");
+	}
+	//console.log(convertedCNum);
+	
+	
+};
 
 function toFahrenheit () {
-	mathedFahNumber = ((tempNumber * 1.8) + 32);
-}
+	console.log("Picked Fahrenheit")
+	let numToConvert = document.getElementById("inp-num").value;
+	let convertedFNum = ((numToConvert *9) /5) +32;
+	let replaceText = document.getElementById("printTemp")
+	if (convertedFNum > 90) {
+		replaceText.innerHTML = (convertedFNum + "°F").fontcolor("red");
+	}	else if (convertedFNum < 32) {
+		replaceText.innerHTML = (convertedFNum + "°F").fontcolor("blue");
+	}	else {
+		replaceText.innerHTML = (convertedFNum + "°F").fontcolor("green");
+	}
+};
 
 // Get a reference to the button element in the DOM
-//var button = document.getElementById("btn-converter");
+let button = document.getElementById("btn-convert");
+let resetButton = document.getElementById("btn-reset");
+let formFull = document.getElementById("formSpace");
+//let numToConvert = document.getElementById("inp-num").value;
+// Get a reference to the input number element in the DOM
+//var inputNumber = document.getElementById("inp-num");
 
 // This function should determine which conversion should
 // happen based on which radio button is selected.
+function determineConverter (clickEvent) {
+  console.log("event", clickEvent);
+  if (document.getElementById("rad-toFahrenheit").checked === true) {
+  		toFahrenheit();
+  		}
+ 	else if	(document.getElementById("rad-toFahrenheit").checked === false) {
+		toCelsius();
+			}
+};
+//Reset Button Function
+function resetForm(clickEvent){
+	console.log("event", clickEvent);
+	formFull.reset();
+//	document.getElementById("formSpace").reset();
+}
+// Assign a function to be executed when the button is clicked
+//button.addEventListener("click", determineConverter);
+button.addEventListener("click", determineConverter);
+
+resetButton.addEventListener("click", resetForm);
 
 
-// Convert Button
-let convertButton = document.getElementById("btn-converter")
-let convertThisNumber;
-
-convertButton.addEventListener("click", function){
-	convertThisNumber = document.getElementById().value;
-
+function textInputNumber () {
+	console.log(document.getElementById("inp-num").value);
 }
 
-// ****** WORKING ******  Reset Button
-document.getElementById("btn-reset").addEventListener("click", clearForm);
-
-function clearForm() {
-	document.getElementById("tempForm").reset();
-}
-function doMathStuff(){
-	if(document.getElementById("selectC") = true;){
-
-	}
-}
-
-// ****** WORKING ****** Print convertNumber to HTML
-document.getElementById("tempAnswer").innerHTML = convertedNumber;
 
